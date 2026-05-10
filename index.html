@@ -221,8 +221,8 @@
             <div class="place-item">
                 <h2 class="place-header">01. Công Viên Tao Đàn</h2>
                 <div class="gallery">
-                    <img src="https://images.unsplash.com/photo-1596422045429-90e7e0047593?q=80&w=1000" alt="Tao Dan">
-                    <img src="https://images.unsplash.com/photo-1582650809083-094191024357?q=80&w=500" alt="Tao Dan Close up">
+                    <img src="z7810263827233_42e3dc117f0215d2b196c0d6655dd925.jpg" alt="Tao Dan 1">
+                    <img src="z7810263829103_29c13a31e190b14c1c34dd9b289f7abe.jpg" alt="Tao Dan 2">
                 </div>
                 <div class="place-info-grid column-text">
                     <div>
@@ -239,8 +239,8 @@
             <div class="place-item">
                 <h2 class="place-header">02. Bảo tàng TP. Hồ Chí Minh</h2>
                 <div class="gallery">
-                    <img src="https://images.unsplash.com/photo-1544033527-b192daee1f5b?q=80&w=1000" alt="Museum">
-                    <img src="https://images.unsplash.com/photo-1559592490-683c0027324d?q=80&w=500" alt="Museum Arch">
+                    <img src="z7810263829103_29c13a31e190b14c1c34dd9b289f7abe.jpg" alt="Museum 1">
+                    <img src="z7810263824062_44ab35e6630360386cf0984d764524c1.jpg" alt="Museum 2">
                 </div>
                 <div class="place-info-grid column-text">
                     <div>
@@ -257,8 +257,8 @@
             <div class="place-item">
                 <h2 class="place-header">03. Dinh Độc Lập</h2>
                 <div class="gallery">
-                    <img src="https://images.unsplash.com/photo-1623334233519-563e46c76949?q=80&w=1000" alt="Independence Palace">
-                    <img src="https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?q=80&w=500" alt="Inside Palace">
+                    <img src="z7810263847336_b6d6960d091a2655cb26fac97a36220a.jpg" alt="Independence Palace 1">
+                    <img src="z7810263851336_73a0218341d8628a14b9e3b3a1413112.jpg" alt="Independence Palace 2">
                 </div>
                 <div class="place-info-grid column-text">
                     <div>
@@ -286,12 +286,14 @@
     </div>
 
     <script>
+        // Hiển thị nội dung chính
         function showContent() {
             document.getElementById('hero').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
             window.scrollTo(0,0);
         }
 
+        // Chuyển đổi Tabs
         function openTab(evt, tabName) {
             var i, section, tabs;
             section = document.getElementsByClassName("section-content");
@@ -306,6 +308,7 @@
             evt.currentTarget.classList.add("active");
         }
 
+        // Tự động tạo mã QR dựa trên URL hiện tại của trang web
         window.onload = function() {
             var currentUrl = window.location.href;
             new QRCode(document.getElementById("qrcode"), {
@@ -317,6 +320,7 @@
                 correctLevel : QRCode.CorrectLevel.H
             });
             
+            // Cập nhật ngày tháng
             const d = new Date();
             const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
             document.getElementById('current-date').innerText = months[d.getMonth()] + " " + d.getFullYear();
