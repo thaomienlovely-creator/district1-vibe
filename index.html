@@ -39,25 +39,6 @@
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
 
-        /* --- THÀNH VIÊN (GÓC TRÁI) --- */
-        .team-sidebar {
-            position: fixed;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            transform: translateY(-50%) rotate(180deg); /* Xoay ngược để đọc từ trên xuống */
-            z-index: 100;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.65rem;
-            color: var(--text);
-            opacity: 0.7;
-            pointer-events: none;
-        }
-        .team-group { margin-bottom: 20px; }
-        .team-label { font-weight: 600; text-transform: uppercase; color: var(--accent); }
-
         /* --- MÀN HÌNH CHÀO (HERO) --- */
         #hero {
             height: 100vh;
@@ -84,6 +65,21 @@
             position: relative;
         }
         .btn-explore:hover { background: var(--text); color: var(--bg); }
+
+        /* --- THÀNH VIÊN NHÓM (GÓC TRÁI) --- */
+        .sidebar-members {
+            position: fixed;
+            left: 10px;
+            bottom: 30px;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            z-index: 10;
+        }
 
         /* --- MAIN CONTENT --- */
         #main-content { display: none; padding: 60px 10% 60px 100px; max-width: 1300px; margin: 0 auto; }
@@ -131,23 +127,15 @@
         @media (max-width: 900px) {
             .grid-layout, .place-info-grid, .gallery { grid-template-columns: 1fr; }
             #main-content { padding-left: 60px; }
-            .qr-container, .team-sidebar { display: none; } /* Ẩn trên mobile cho gọn */
+            .qr-container, .sidebar-members { display: none; } 
         }
     </style>
 </head>
 <body>
 
-    <aside class="team-sidebar">
-        <div class="team-group">
-            <span class="team-label">Nội dung & Thiết kế:</span> Thảo Miên, Xuân An
-        </div>
-        <div class="team-group">
-            <span class="team-label">Thuyết trình:</span> Thiên Nhi, Quốc Minh
-        </div>
-        <div class="team-group">
-            <span class="team-label">Hình ảnh:</span> Minh Hiển, Khánh Vân
-        </div>
-    </aside>
+    <div class="sidebar-members">
+        Thảo Miên • Xuân An • Thiên Nhi • Quốc Minh • Minh Hiển • Khánh Vân
+    </div>
 
     <section id="hero">
         <div class="hero-tag">EST. 1976 / TP. HỒ CHÍ MINH</div>
@@ -159,7 +147,9 @@
     <main id="main-content">
         <div class="journal-meta">
             <span>VOLUME 01</span>
-            <span>QUẬN 1, SAIGON, VN</span>
+            <span style="text-align: center;">
+                TEAM: Thảo Miên, Xuân An (Nội dung) • Thiên Nhi, Quốc Minh (Thuyết trình) • Minh Hiển, Khánh Vân (Hình ảnh)
+            </span>
             <span id="current-date">MAY 2026</span>
         </div>
 
@@ -279,7 +269,7 @@
 
         <footer>
             <p>DISTRICT1.VIBES / 2026 JOURNAL</p>
-            <p style="font-size: 0.6rem; margin-top: 10px;">MADE WITH HEART FOR SAIGON LOVERS</p>
+            <p style="font-size: 0.6rem; margin-top: 10px;">MADE WITH HEART BY TEAM: THẢO MIÊN, XUÂN AN, THIÊN NHI, QUỐC MINH, MINH HIỂN, KHÁNH VÂN</p>
         </footer>
     </main>
 
