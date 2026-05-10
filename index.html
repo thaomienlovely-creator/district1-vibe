@@ -52,7 +52,7 @@
             position: relative;
         }
 
-        /* --- PHẦN THÀNH VIÊN (MỚI THÊM) --- */
+        /* --- PHẦN THÀNH VIÊN --- */
         .hero-members {
             position: absolute;
             left: 70px;
@@ -109,7 +109,7 @@
         .place-header { font-size: 2.5rem; margin-bottom: 20px; border-left: 5px solid var(--accent); padding-left: 20px; }
         
         .gallery { display: grid; grid-template-columns: 2fr 1fr; gap: 15px; margin: 30px 0; }
-        .gallery img { width: 100%; height: 300px; object-fit: cover; filter: sepia(20%); transition: 0.5s; cursor: crosshair; }
+        .gallery img { width: 100%; height: 350px; object-fit: cover; filter: sepia(20%); transition: 0.5s; cursor: crosshair; }
         .gallery img:hover { filter: sepia(0%); }
 
         .place-info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
@@ -221,8 +221,8 @@
             <div class="place-item">
                 <h2 class="place-header">01. Công Viên Tao Đàn</h2>
                 <div class="gallery">
-                    <img src="z7810263827233_42e3dc117f0215d2b196c0d6655dd925.jpg" alt="Tao Dan 1">
-                    <img src="z7810263829103_29c13a31e190b14c1c34dd9b289f7abe.jpg" alt="Tao Dan 2">
+                    <img src="https://i.ibb.co/vzR0yXn/dinh-doc-lap-1.jpg" alt="Tao Dan 1">
+                    <img src="https://i.ibb.co/mS7D5qV/dinh-doc-lap-2.jpg" alt="Tao Dan 2">
                 </div>
                 <div class="place-info-grid column-text">
                     <div>
@@ -239,8 +239,8 @@
             <div class="place-item">
                 <h2 class="place-header">02. Bảo tàng TP. Hồ Chí Minh</h2>
                 <div class="gallery">
-                    <img src="z7810263829103_29c13a31e190b14c1c34dd9b289f7abe.jpg" alt="Museum 1">
-                    <img src="z7810263824062_44ab35e6630360386cf0984d764524c1.jpg" alt="Museum 2">
+                    <img src="https://i.ibb.co/6R2M8Pz/bao-tang-1.jpg" alt="Museum 1">
+                    <img src="https://i.ibb.co/yYVpBfX/bao-tang-2.jpg" alt="Museum 2">
                 </div>
                 <div class="place-info-grid column-text">
                     <div>
@@ -257,8 +257,8 @@
             <div class="place-item">
                 <h2 class="place-header">03. Dinh Độc Lập</h2>
                 <div class="gallery">
-                    <img src="z7810263847336_b6d6960d091a2655cb26fac97a36220a.jpg" alt="Independence Palace 1">
-                    <img src="z7810263851336_73a0218341d8628a14b9e3b3a1413112.jpg" alt="Independence Palace 2">
+                    <img src="https://i.ibb.co/jWC9kG4/dinh-doc-lap-5.jpg" alt="Independence Palace 1">
+                    <img src="https://i.ibb.co/L6V6Y4S/dinh-doc-lap-6.jpg" alt="Independence Palace 2">
                 </div>
                 <div class="place-info-grid column-text">
                     <div>
@@ -286,14 +286,12 @@
     </div>
 
     <script>
-        // Hiển thị nội dung chính
         function showContent() {
             document.getElementById('hero').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
             window.scrollTo(0,0);
         }
 
-        // Chuyển đổi Tabs
         function openTab(evt, tabName) {
             var i, section, tabs;
             section = document.getElementsByClassName("section-content");
@@ -308,7 +306,6 @@
             evt.currentTarget.classList.add("active");
         }
 
-        // Tự động tạo mã QR dựa trên URL hiện tại của trang web
         window.onload = function() {
             var currentUrl = window.location.href;
             new QRCode(document.getElementById("qrcode"), {
@@ -320,7 +317,6 @@
                 correctLevel : QRCode.CorrectLevel.H
             });
             
-            // Cập nhật ngày tháng
             const d = new Date();
             const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
             document.getElementById('current-date').innerText = months[d.getMonth()] + " " + d.getFullYear();
