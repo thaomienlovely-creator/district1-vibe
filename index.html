@@ -52,6 +52,23 @@
             position: relative;
         }
 
+        /* --- PHẦN THÀNH VIÊN (MỚI THÊM) --- */
+        .hero-members {
+            position: absolute;
+            left: 70px;
+            bottom: 60px;
+            text-align: left;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            border-left: 1px solid var(--text);
+            padding-left: 15px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+        .hero-members b { font-weight: 600; color: var(--accent); }
+
         .hero-tag { font-family: 'Space Mono', monospace; font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 1rem; }
         .hero-title { font-size: clamp(3rem, 10vw, 6rem); margin-bottom: 2rem; line-height: 1; }
         
@@ -63,23 +80,9 @@
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
+            z-index: 2;
         }
         .btn-explore:hover { background: var(--text); color: var(--bg); }
-
-        /* --- THÀNH VIÊN NHÓM (GÓC TRÁI) --- */
-        .sidebar-members {
-            position: fixed;
-            left: 10px;
-            bottom: 30px;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            font-family: 'Space Mono', monospace;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.6;
-            z-index: 10;
-        }
 
         /* --- MAIN CONTENT --- */
         #main-content { display: none; padding: 60px 10% 60px 100px; max-width: 1300px; margin: 0 auto; }
@@ -127,17 +130,23 @@
         @media (max-width: 900px) {
             .grid-layout, .place-info-grid, .gallery { grid-template-columns: 1fr; }
             #main-content { padding-left: 60px; }
-            .qr-container, .sidebar-members { display: none; } 
+            .qr-container { display: none; }
+            .hero-members { left: 60px; bottom: 30px; font-size: 0.55rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="sidebar-members">
-        Thảo Miên • Xuân An • Thiên Nhi • Quốc Minh • Minh Hiển • Khánh Vân
-    </div>
-
     <section id="hero">
+        <div class="hero-members">
+            <p><b>Thảo Miên:</b> Nội dung, thiết kế</p>
+            <p><b>Xuân An:</b> Nội dung</p>
+            <p><b>Thiên Nhi:</b> Thuyết trình</p>
+            <p><b>Quốc Minh:</b> Thuyết trình</p>
+            <p><b>Minh Hiển:</b> Hình ảnh</p>
+            <p><b>Khánh Vân:</b> Hình ảnh</p>
+        </div>
+
         <div class="hero-tag">EST. 1976 / TP. HỒ CHÍ MINH</div>
         <h1 class="hero-title">district1.<br><i>vibes</i></h1>
         <p style="margin-bottom: 2rem; font-style: italic;">Hành trình vào trái tim của "Hòn ngọc Viễn Đông"</p>
@@ -147,9 +156,7 @@
     <main id="main-content">
         <div class="journal-meta">
             <span>VOLUME 01</span>
-            <span style="text-align: center;">
-                TEAM: Thảo Miên, Xuân An (Nội dung) • Thiên Nhi, Quốc Minh (Thuyết trình) • Minh Hiển, Khánh Vân (Hình ảnh)
-            </span>
+            <span>QUẬN 1, SAIGON, VN</span>
             <span id="current-date">MAY 2026</span>
         </div>
 
@@ -269,7 +276,7 @@
 
         <footer>
             <p>DISTRICT1.VIBES / 2026 JOURNAL</p>
-            <p style="font-size: 0.6rem; margin-top: 10px;">MADE WITH HEART BY TEAM: THẢO MIÊN, XUÂN AN, THIÊN NHI, QUỐC MINH, MINH HIỂN, KHÁNH VÂN</p>
+            <p style="font-size: 0.6rem; margin-top: 10px;">MADE WITH HEART FOR SAIGON LOVERS</p>
         </footer>
     </main>
 
@@ -279,14 +286,12 @@
     </div>
 
     <script>
-        // Hiển thị nội dung chính
         function showContent() {
             document.getElementById('hero').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
             window.scrollTo(0,0);
         }
 
-        // Chuyển đổi Tabs
         function openTab(evt, tabName) {
             var i, section, tabs;
             section = document.getElementsByClassName("section-content");
@@ -301,7 +306,6 @@
             evt.currentTarget.classList.add("active");
         }
 
-        // Tự động tạo mã QR dựa trên URL hiện tại của trang web
         window.onload = function() {
             var currentUrl = window.location.href;
             new QRCode(document.getElementById("qrcode"), {
@@ -313,7 +317,6 @@
                 correctLevel : QRCode.CorrectLevel.H
             });
             
-            // Cập nhật ngày tháng
             const d = new Date();
             const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
             document.getElementById('current-date').innerText = months[d.getMonth()] + " " + d.getFullYear();
